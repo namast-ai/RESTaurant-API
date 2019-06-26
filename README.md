@@ -1,3 +1,23 @@
+RESTaurant-API is the backend for a restaurant inventory application that was designed and coded by Adam Caplan, Jeremy Denton, Merritt Blanks, and Oliver Sablove, as part of a project for General Assembly.
+
+The app is designed to provide an easy way for restaurants to track their inventory.
+
+*Relevant Links*
+Backend deployed: https://morning-hollows-81329.herokuapp.com/
+Frontend repo: https://github.com/namast-ai/RESTaurant-client
+Frontend deployed: https://namast-ai.github.io/RESTaurant-client/
+
+*Technologies Used:*
+- Express.js
+- Node.js
+- Mongoose
+- MongoDB
+
+******Planning, process....****
+
+*******Unsolved problems:***********
+
+
 ## API End Points
 
 | Verb   | URI Pattern               | Routes#Action |
