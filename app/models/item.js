@@ -22,7 +22,8 @@ const itemSchema = new mongoose.Schema({
   //   required: true
   // },
   limit: {
-    type: Number
+    type: Number,
+    required: true
   },
   owner: {
     type: mongoose.Schema.Types.ObjectId,
@@ -36,15 +37,18 @@ const itemSchema = new mongoose.Schema({
 })
 
 itemSchema.virtual('reorderStatus').get(function () {
-  if (this.quantity <= 5) {
+  if (this.quantity === 0 && this.limit === 0) {
     return 'danger'
-  } else if (this.quantity > 5 && this.quantity <= 10) {
+  }
+  if (this.quantity <= this.limit) {
+    return 'danger'
+  } else if (this.quantity > this.limit && this.quantity <= this.limit * 1.5) {
     return 'warning'
   } else {
     return 'success'
   }
 })
 
-const Item = mongoose.model('Item', itemSchema)
+// const Item = mongoose.model('Item', itemSchema)
 
 module.exports = mongoose.model('Item', itemSchema)
