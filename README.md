@@ -326,6 +326,23 @@ All of the item actions follow the *RESTful* style.
   <td>404 Not Found</td>
   <td><em>empty</em></td>
 </tr>
+<tr>
+<td>DELETE</td>
+<td>`/items/:id`</td>
+<td><strong>'{}'</strong></td>
+<td>204, OK</td>
+<td><strong>item updated</strong></td>
+</tr>
+<tr>
+  <td colspan="3"></td>
+  <td>400 Bad Request</td>
+  <td><strong>errors</strong></td>
+</tr>
+<tr>
+  <td colspan="3"></td>
+  <td>404 Not Found</td>
+  <td><em>empty</em></td>
+</tr>
 </table>
 
 ## index
