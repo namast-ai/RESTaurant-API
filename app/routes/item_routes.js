@@ -50,7 +50,10 @@ router.get('/items/:id', requireToken, (req, res, next) => {
   Item.findById(req.params.id)
     .then(handle404)
     // if `findById` is succesful, respond with 200 and "item" JSON
-    // requireOwnership(req, items)
+    .then(item => {
+      requireOwnership(req, item)
+      return item
+    })
     .then(item => res.status(200).json({ item: item.toObject() }))
     // if an error occurs, pass it to the handler
     .catch(next)
