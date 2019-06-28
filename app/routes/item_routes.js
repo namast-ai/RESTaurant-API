@@ -59,6 +59,24 @@ router.get('/items/:id', requireToken, (req, res, next) => {
     .catch(next)
 })
 
+// Search
+router.get('/items/name/?=', requireToken, (req, res, next) => {
+  Item.find()
+    .then(items => {
+      console.log(req.params)
+    })
+    .then(items => {
+      // `items` will be an array of Mongoose documents
+      // we want to convert each one to a POJO, so we use `.map` to
+      // apply `.toObject` to each one
+      return items.map(item => item.toObject())
+    })
+    // respond with status 200 and JSON of the items
+    .then(items => res.status(200).json({ items: items }))
+    // if an error occurs, pass it to the handler
+    .catch(next)
+})
+
 // CREATE
 // POST /items
 router.post('/items', requireToken, (req, res, next) => {
