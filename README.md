@@ -13,10 +13,9 @@ Frontend deployed: https://namast-ai.github.io/RESTaurant-client/
 - Mongoose
 - MongoDB
 
-******Planning, process....****
+<!-- ******Planning, process....****
 
-*******Unsolved problems:***********
-
+*******Unsolved problems:*********** -->
 
 ## API End Points
 
