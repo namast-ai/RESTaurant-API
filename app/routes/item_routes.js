@@ -60,11 +60,16 @@ router.get('/items/:id', requireToken, (req, res, next) => {
 })
 
 // Search
-router.get('/items/name/?=', requireToken, (req, res, next) => {
-  Item.find()
-    .then(items => {
-      console.log(req.params)
-    })
+router.get('/items/search/:term', requireToken, (req, res, next) => {
+  const termArray = req.params.term.split('-')
+  const termWithSpaces = termArray.join(' ')
+  const re = new RegExp(termWithSpaces, 'i')
+  Item.find({ name: re })
+    // .then(items => {
+    //   console.log('The search term is', req.params.term)
+    //   console.log(items)
+    //   return items
+    // })
     .then(items => {
       // `items` will be an array of Mongoose documents
       // we want to convert each one to a POJO, so we use `.map` to
