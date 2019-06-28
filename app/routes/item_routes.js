@@ -64,7 +64,7 @@ router.get('/items/search/:term', requireToken, (req, res, next) => {
   const termArray = req.params.term.split('-')
   const termWithSpaces = termArray.join(' ')
   const re = new RegExp(termWithSpaces, 'i')
-  Item.find({ name: re })
+  Item.find({ name: re, owner: req.user._id })
     // .then(items => {
     //   console.log('The search term is', req.params.term)
     //   console.log(items)
