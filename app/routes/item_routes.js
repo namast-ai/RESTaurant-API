@@ -74,6 +74,7 @@ router.get('/items/search/:term', requireToken, (req, res, next) => {
       // `items` will be an array of Mongoose documents
       // we want to convert each one to a POJO, so we use `.map` to
       // apply `.toObject` to each one
+      console.log('hi')
       return items.map(item => item.toObject())
     })
     // respond with status 200 and JSON of the items
