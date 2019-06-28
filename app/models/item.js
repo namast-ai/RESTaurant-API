@@ -37,11 +37,11 @@ const itemSchema = new mongoose.Schema({
 
 itemSchema.virtual('reorderStatus').get(function () {
   if (this.quantity <= 5) {
-    return 'red'
+    return 'danger'
   } else if (this.quantity > 5 && this.quantity <= 10) {
-    return 'yellow'
+    return 'warning'
   } else {
-    return 'green'
+    return 'success'
   }
 })
 
