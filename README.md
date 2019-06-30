@@ -2,20 +2,29 @@ RESTaurant-API is the backend for a restaurant inventory application that was de
 
 The app is designed to provide an easy way for restaurants to track their inventory.
 
-*Relevant Links*
-Backend deployed: https://morning-hollows-81329.herokuapp.com/
-Frontend repo: https://github.com/namast-ai/RESTaurant-client
-Frontend deployed: https://namast-ai.github.io/RESTaurant-client/
+## Relevant Links
+- Backend deployed: https://morning-hollows-81329.herokuapp.com/
+- Frontend repo: https://github.com/namast-ai/RESTaurant-client
+- Frontend deployed: https://namast-ai.github.io/RESTaurant-client/
 
-*Technologies Used:*
+-ERD: https://imgur.com/cKsTx5Y
+
+## Technologies Used:
 - Express.js
 - Node.js
 - Mongoose
 - MongoDB
 
-<!-- ******Planning, process....****
+## Our Development Process
+This app was prepared in three business days, with some final touches added in the two days that followed. Our team worked together to create a vision for this project, including wireframes and an ERB. We created a GitHub profile, and used Git and ZenHub to organize and manage workflow. The actual coding of the project was a combination of individual efforts, pair programming, and mob programming. Our team implemented a series of 2-4 hour sprints to achieve specific goals. We checked in regularly, and met for modified versions of a scrum twice daily.
 
-*******Unsolved problems:*********** -->
+## Unsolved Problems / Future Directions
+Future versions of this application could include:
+
+- a barcode generator or QR code generator
+- functionality to alert user by email when quantities reach user-defined threshold/limit
+- ability to add multiple restaurant locations, and to sort
+- add user types (eg. owner, manager, inventory associate), and restrict functionality by user type
 
 ## API End Points
 
@@ -32,6 +41,7 @@ Frontend deployed: https://namast-ai.github.io/RESTaurant-client/
 | DELETE | `/items/:id`              | `items#destroy`         |
 
 All data returned from API actions is formatted as JSON.
+
 ## User Actions
 
 _Note_: Sending JSON data via curl scripts will require specifying the content-
