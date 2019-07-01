@@ -64,23 +64,39 @@ router.get('/items/search/:term', requireToken, (req, res, next) => {
   const termArray = req.params.term.split('-')
   const termWithSpaces = termArray.join(' ')
   const re = new RegExp(termWithSpaces, 'i')
-  Item.find({ name: re, owner: req.user._id })
-    // .then(items => {
-    //   console.log('The search term is', req.params.term)
-    //   console.log(items)
-    //   return items
-    // })
-    .then(items => {
-      // `items` will be an array of Mongoose documents
-      // we want to convert each one to a POJO, so we use `.map` to
-      // apply `.toObject` to each one
-      console.log('hi')
-      return items.map(item => item.toObject())
-    })
-    // respond with status 200 and JSON of the items
-    .then(items => res.status(200).json({ items: items }))
-    // if an error occurs, pass it to the handler
-    .catch(next)
+  console.log(req.params.term)
+  if (req.params.term === 'emPty SeArcH fiEld') {
+    console.log('hi')
+    Item.find({owner: req.user._id})
+      .then(items => {
+        // `items` will be an array of Mongoose documents
+        // we want to convert each one to a POJO, so we use `.map` to
+        // apply `.toObject` to each one
+        return items.map(item => item.toObject())
+      })
+      // respond with status 200 and JSON of the items
+      .then(items => res.status(200).json({ items: items }))
+      // if an error occurs, pass it to the handler
+      .catch(next)
+  } else {
+    Item.find({ name: re, owner: req.user._id })
+      // .then(items => {
+      //   console.log('The search term is', req.params.term)
+      //   console.log(items)
+      //   return items
+      // })
+      .then(items => {
+        // `items` will be an array of Mongoose documents
+        // we want to convert each one to a POJO, so we use `.map` to
+        // apply `.toObject` to each one
+        console.log('hi')
+        return items.map(item => item.toObject())
+      })
+      // respond with status 200 and JSON of the items
+      .then(items => res.status(200).json({ items: items }))
+      // if an error occurs, pass it to the handler
+      .catch(next)
+  }
 })
 
 // CREATE
