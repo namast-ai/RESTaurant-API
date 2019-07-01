@@ -8,7 +8,6 @@ const userSchema = new mongoose.Schema({
   },
   company: {
     type: String,
-    required: true
   },
   hashedPassword: {
     type: String,
